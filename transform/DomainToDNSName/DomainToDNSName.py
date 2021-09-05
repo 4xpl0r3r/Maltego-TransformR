@@ -4,12 +4,12 @@ import argparse
 import requests
 import re
 import datetime
-from lib.transform import basicTransform
+from lib.basicTransform import BasicTransform
 
-class ToSubdomainTransform(basicTransform):
+class MainTransform(BasicTransform):
     # crt.sh
     # make use of https certs to find out subdomains
-    def doTransformByCrtsh(self):
+    def doTransform(self):
         print("[*] Performing Transform with crt.sh")
         transform_name='transformR.DomainToDNSName.ByCrtsh'
         display_name='To DNS Name [transformR.ByCrtsh]'
@@ -30,14 +30,3 @@ class ToSubdomainTransform(basicTransform):
                 self.links.append(self.objectFactory.generateLink(sourceDomain['EntityID'],newEntity['EntityID'],
                 maltego_link_transform_name=transform_name,maltego_link_transform_display_name=display_name,maltego_link_transform_run_date=run_date))
         print("[+] Transform with crt.sh Finished")
-
-def main(args):
-    toSubdomainTransform = ToSubdomainTransform(args.inputFile)
-    toSubdomainTransform.doTransformByCrtsh()
-    toSubdomainTransform.output(args.outputFile)
-
-if(__name__=='__main__'):
-    parser = argparse.ArgumentParser(description='A Transform to find out subdomains. Input Type: maltego.Domain Output Type: maltego.DNSName')
-    parser.add_argument('inputFile', help='the file contains the exported maltego entities to perform transform')
-    parser.add_argument('outputFile', help='where to store the generated data ( NO .csv suffix needed )')
-    main(parser.parse_args())
