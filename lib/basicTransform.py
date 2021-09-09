@@ -9,13 +9,13 @@ class BasicTransform:
 
     inputFiles = None
     outputFile = None
-    configFile = None
+    transformConfig = None
 
-    def __init__(self,inputFiles,outputFile,configFile):
+    def __init__(self,inputFiles,outputFile,transformConfig):
         print('[*] Initializing Transform')
         self.inputFiles = inputFiles
         self.outputFile = outputFile
-        self.configFile = configFile
+        self.transformConfig = transformConfig
         print('[*] Transform Initialized')
         print('[*] Loading Entities')
         for file in self.inputFiles:
