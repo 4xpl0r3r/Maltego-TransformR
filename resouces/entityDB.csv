@@ -1,2 +1,4 @@
 maltego.Domain,fqdn
 maltego.DNSName,fqdn
+maltego.IPv4Address,ipv4-address,ipaddress.internal
+maltego.IPv6Address,ipv6-address,ipaddress.internal

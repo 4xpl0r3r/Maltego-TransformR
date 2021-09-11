@@ -1,4 +1,6 @@
-# Maltego Transform的穷人替代版
+# Maltego Transform的开源替代版
+
+**由于Maltego的Entity复制限制，终止此项目**
 
 R表示Replacer
 
